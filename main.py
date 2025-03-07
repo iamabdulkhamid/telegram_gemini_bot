@@ -42,6 +42,17 @@ def get_gemini_response(user_input):
 def home():
     return "Bot is running!"
 
+# Flask serverni ishga tushiramiz
 if __name__ == "__main__":
-    print("Bot ishga tushdi!")  
-    bot.polling(none_stop=True, interval=0)
+    from threading import Thread
+
+    # Botni alohida oqimda ishga tushiramiz
+    def run_bot():
+        bot.polling(none_stop=True, interval=0)
+
+    bot_thread = Thread(target=run_bot)
+    bot_thread.start()
+
+    # Flask serverni ishga tushiramiz
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
