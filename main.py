@@ -2,7 +2,6 @@ import telebot
 import google.generativeai as genai
 import os
 from flask import Flask, request
-import threading
 
 # Flask server yaratamiz
 app = Flask(__name__)
@@ -43,11 +42,6 @@ def get_gemini_response(user_input):
 def home():
     return "Bot is running!"
 
-# Telegram botni fon rejimida ishga tushirish
-def start_bot():
-    bot.infinity_polling()
-
-# Gunicorn uchun WSGI ilova
 if __name__ == "__main__":
-    threading.Thread(target=start_bot, daemon=True).start()
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+    print("Bot ishga tushdi!")  
+    bot.polling(none_stop=True, interval=0)
