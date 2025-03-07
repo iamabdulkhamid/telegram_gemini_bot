@@ -2,3 +2,4 @@ telebot
 flask
 google-generativeai
 gunicorn
+pip install --upgrade pip
