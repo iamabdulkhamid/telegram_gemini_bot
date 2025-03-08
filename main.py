@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Telegram bot tokeni
 TELEGRAM_TOKEN = os.getenv("Telegramtoken")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Render yoki boshqa serverdagi to‘g‘ri URL
+WEBHOOK_URL = os.getenv("https://telegram-gemini-bot-vrp8.onrender.com/")  # Render yoki boshqa serverdagi to‘g‘ri URL
 
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
 
